@@ -65,6 +65,6 @@ End Property
 
 Private Function IOrbital_ToStr() As String
     Dim s As String
-    s = CStr(m_ENiveau) & "s" & "^" & CStr(IOrbital_Count)
+    s = CStr(m_ENiveau) & "s" & "^" & CStr(IOrbital_CountElektrons)
     IOrbital_ToStr = s
 End Function

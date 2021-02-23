@@ -1,26 +1,26 @@
 VERSION 5.00
 Begin VB.Form Form1 
    Caption         =   "Form1"
-   ClientHeight    =   8415
+   ClientHeight    =   8412
    ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   20775
+   ClientTop       =   468
+   ClientWidth     =   20772
    LinkTopic       =   "Form1"
-   ScaleHeight     =   561
+   ScaleHeight     =   701
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   1385
+   ScaleWidth      =   1731
    StartUpPosition =   3  'Windows-Standard
    Begin VB.PictureBox Picture1 
       BorderStyle     =   0  'Kein
       Height          =   615
       Left            =   120
-      ScaleHeight     =   615
-      ScaleWidth      =   18855
+      ScaleHeight     =   612
+      ScaleWidth      =   18852
       TabIndex        =   1
       Top             =   120
       Width           =   18855
       Begin VB.ListBox List2 
-         Height          =   510
+         Height          =   480
          Left            =   3240
          Style           =   1  'Kontrollkästchen
          TabIndex        =   2
@@ -31,14 +31,14 @@ Begin VB.Form Form1
    Begin VB.ListBox List1 
       BeginProperty Font 
          Name            =   "Lucida Console"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   7485
+      Height          =   7344
       Left            =   120
       TabIndex        =   0
       Top             =   840
@@ -60,7 +60,9 @@ Dim Atoms As ListOfAtom
 '
 '
 Private Sub Form_Load()
-    InitChemElements
+    MChemElem.InitChemElements
+    ChemElements_ToListbox List1
+    'MChemElem.GetChemElemFromOrd
     'Set Atoms = New ListOfAtom
     'Atoms.ToListBox List1
 End Sub
@@ -78,7 +80,8 @@ Private Sub List1_Click()
     Dim a As Atom
     Dim i As Long: i = List1.ListIndex + 1
     If i > 0 Then
-        Set a = Atoms.Item(i)
+        'Set a = Atoms.Item(i)
         'MsgBox a.CountElectrons
     End If
 End Sub
+

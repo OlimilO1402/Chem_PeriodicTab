@@ -19,20 +19,20 @@ Friend Sub New_(aESpin As ESpin)
     m_Spin = aESpin
 End Sub
 
-Public Property Get ESpin() As ESpin
-    ESpin = m_Spin
+Public Property Get Spin() As ESpin
+    Spin = m_Spin
 End Property
 
-Public Function ESpinInc() As Boolean
+Public Function SpinInc() As Boolean
     If ESpin.SpinUpDown <= m_Spin Then Exit Function
     If ESpin.none <= m_Spin And m_Spin < ESpin.SpinUpDown Then m_Spin = m_Spin + 1
-    ESpinInc = True
+    SpinInc = True
 End Function
 
-Public Function ESpinDec() As Boolean
+Public Function SpinDec() As Boolean
     If m_Spin <= ESpin.none Then Exit Function
     If m_Spin <= ESpin.SpinUpDown Then m_Spin = m_Spin - 1
-    ESpinDec = True
+    SpinDec = True
 End Function
 
 Public Property Get CountElektrons() As Long

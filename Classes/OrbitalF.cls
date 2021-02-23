@@ -49,17 +49,17 @@ End Function
 Private Function IOrbital_COrbitalS() As OrbitalS
 End Function
 
-Private Property Get IOrbital_Count() As Long
-    Dim c As Long
-    If Not m_O1 Is Nothing Then c = c + m_O1.Count
-    If Not m_O2 Is Nothing Then c = c + m_O2.Count
-    If Not m_O3 Is Nothing Then c = c + m_O3.Count
-    If Not m_O4 Is Nothing Then c = c + m_O4.Count
-    If Not m_O5 Is Nothing Then c = c + m_O5.Count
-    If Not m_O6 Is Nothing Then c = c + m_O6.Count
-    If Not m_O7 Is Nothing Then c = c + m_O7.Count
-    IOrbital_Count = c
-End Property
+'Private Property Get IOrbital_Count() As Long
+'    Dim c As Long
+'    If Not m_O1 Is Nothing Then c = c + m_O1.Count
+'    If Not m_O2 Is Nothing Then c = c + m_O2.Count
+'    If Not m_O3 Is Nothing Then c = c + m_O3.Count
+'    If Not m_O4 Is Nothing Then c = c + m_O4.Count
+'    If Not m_O5 Is Nothing Then c = c + m_O5.Count
+'    If Not m_O6 Is Nothing Then c = c + m_O6.Count
+'    If Not m_O7 Is Nothing Then c = c + m_O7.Count
+'    IOrbital_Count = c
+'End Property
 '
 'Private Property Get IOrbital_ENiveau() As EnergyNiveau
 '    Set IOrbital_ENiveau = m_ENiveau
@@ -87,7 +87,7 @@ End Property
 
 Private Function IOrbital_ToStr() As String
     Dim s As String
-    s = CStr(m_ENiveau) & "f" & "^" & CStr(IOrbital_Count)
+    s = CStr(m_ENiveau) & "f" & "^" & CStr(IOrbital_CountElektrons)
     IOrbital_ToStr = s
 End Function
 

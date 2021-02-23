@@ -28,19 +28,19 @@ End Property
 
 Public Property Get CountElektrons() As Long
     Dim c As Long
-    If Not m_OrbitalS Is Nothing Then c = c + m_OrbitalS.Count
-    If Not m_OrbitalP Is Nothing Then c = c + m_OrbitalP.Count
-    If Not m_OrbitalD Is Nothing Then c = c + m_OrbitalD.Count
-    If Not m_OrbitalF Is Nothing Then c = c + m_OrbitalF.Count
+    If Not m_OrbitalS Is Nothing Then c = c + m_OrbitalS.CountElektrons
+    If Not m_OrbitalP Is Nothing Then c = c + m_OrbitalP.CountElektrons
+    If Not m_OrbitalD Is Nothing Then c = c + m_OrbitalD.CountElektrons
+    If Not m_OrbitalF Is Nothing Then c = c + m_OrbitalF.CountElektrons
     CountElektrons = c
 End Property
 
 Friend Function ToStr() As String
     Dim s As String
     's = m_Value
-    If Not m_OrbitalS Is Nothing Then s = s & CStr(m_Value) & "s^" & CStr(m_OrbitalS.Count) & ", " 'IIf(Not m_OrbitalP Is Nothing, ", ", "")
-    If Not m_OrbitalP Is Nothing Then s = s & CStr(m_Value) & "p^" & CStr(m_OrbitalP.Count) & ", " 'IIf(Not m_OrbitalD Is Nothing, ", ", "")
-    If Not m_OrbitalD Is Nothing Then s = s & CStr(m_Value) & "d^" & CStr(m_OrbitalD.Count) & ", " 'IIf(Not m_OrbitalF Is Nothing, ", ", "")
-    If Not m_OrbitalF Is Nothing Then s = s & CStr(m_Value) & "f^" & CStr(m_OrbitalF.Count) '& ", "
+    If Not m_OrbitalS Is Nothing Then s = s & CStr(m_Value) & "s^" & CStr(m_OrbitalS.CountElektrons) & ", " 'IIf(Not m_OrbitalP Is Nothing, ", ", "")
+    If Not m_OrbitalP Is Nothing Then s = s & CStr(m_Value) & "p^" & CStr(m_OrbitalP.CountElektrons) & ", " 'IIf(Not m_OrbitalD Is Nothing, ", ", "")
+    If Not m_OrbitalD Is Nothing Then s = s & CStr(m_Value) & "d^" & CStr(m_OrbitalD.CountElektrons) & ", " 'IIf(Not m_OrbitalF Is Nothing, ", ", "")
+    If Not m_OrbitalF Is Nothing Then s = s & CStr(m_Value) & "f^" & CStr(m_OrbitalF.CountElektrons) '& ", "
     ToStr = s
 End Function

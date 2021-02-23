@@ -45,11 +45,11 @@ Public Function AddElektrons(ByVal nElektronsLeft As Long) As Long
     If nElektronsLeft = 0 Then Exit Function
     Dim i As Long
     For i = 0 To Min(UBound(m_Arr), nElektronsLeft)
-        If m_Arr(i).ESpinInc Then nElektronsLeft = nElektronsLeft - 1
+        If m_Arr(i).SpinInc Then nElektronsLeft = nElektronsLeft - 1
         If nElektronsLeft = 0 Then Exit Function
     Next
     For i = 0 To Min(UBound(m_Arr), nElektronsLeft)
-        If m_Arr(i).ESpinInc Then nElektronsLeft = nElektronsLeft - 1
+        If m_Arr(i).SpinInc Then nElektronsLeft = nElektronsLeft - 1
         If nElektronsLeft = 0 Then Exit Function
     Next
     AddElektrons = nElektronsLeft

@@ -2,7 +2,7 @@ Attribute VB_Name = "MChemElem"
 Option Explicit
 
 Public Enum ESerie
-    None = 0                ' R ,  G ,  B
+    none = 0                ' R ,  G ,  B
     Nichtmetall = &H1       '228, 255, 228
     Edelgas = &H2           '237, 255, 255
     Alkalimetall = &H4      '255, 213, 213
@@ -42,7 +42,7 @@ End Enum
 '
 ''-Spin 'ESpin
 Public Enum OrbitalSpin
-    None = 0
+    none = 0
     SpinUp = 1
     SpinUpDown = 2
 End Enum
@@ -125,6 +125,34 @@ Public Sub InitChemElements()
     CreateChemElements
 End Sub
 
+Public Sub ChemElements_ToListbox(aLB As ListBox)
+    With aLB
+        Dim i As Long
+        'For i = LBound(m_ChemElements) To UBound(m_ChemElements)
+        For i = 1 To UBound(m_ChemElements)
+            .AddItem ChemElement_ToStr(m_ChemElements(i))
+        Next
+    End With
+End Sub
+
+Public Function ChemElement_ToStr(this As ChemElement) As String
+    Dim s As String
+    With this
+        s = s & PadLeft(CStr(.Ordnungszahl), 3) & " "
+        s = s & PadRight(.Symbol, 2) & " "
+        s = s & PadRight(.Name, 14) & " "
+        s = s & PadLeft(Format(.Atomgewicht, "0.000"), 7) & "; "
+        s = s & "is R.Act: " & PadRight(BoolToYesNo(.isRadioaktiv), 6) & "; "
+        s = s & "is Artif: " & PadRight(BoolToYesNo(.isArtificial), 6) & "; "
+        s = s & PadRight(ESerie_ToStr(.Serie), 15) & "; "
+        s = s & PadRight(EStoffTyp_ToStr(.StoffTyp), 11) & "; "
+        s = s & "elneg: " & Format(.ElNegativ, "0.0") & "; "
+        's = s & "n-Neutr: " & PadLeft(.nNeutrons, 3) & "; "
+        s = s & "ElKonf: " & ElKonf_ToStr(.ElKonfig)
+    End With
+    ChemElement_ToStr = s
+End Function
+
 Public Function GetChemElemFromOrd(ByVal iOrd As Long) As ChemElement
     GetChemElemFromOrd = m_ChemElements(iOrd)
 End Function
@@ -132,17 +160,17 @@ End Function
 Private Function GetESerieFromOrd(ByVal iOrd As Long) As ESerie
     Dim e As ESerie
     Select Case iOrd
-    Case 0: e = ESerie.None
-    Case 1, 6, 7, 8, 15, 16, 34:                           e = Nichtmetall
-    Case 2, 10, 18, 36, 54, 86:                            e = Edelgas
-    Case 3, 11, 19, 37, 55, 87:                            e = Alkalimetall
-    Case 4, 12, 20, 38, 56, 88:                            e = Erdalkalimetall
-    Case 5, 14, 32, 33, 34, 51, 52, 84, 85:                e = Halbmetall
-    Case 9, 17, 35, 53, 85:                                e = Halogen
-    Case 13, 31, 32, 49 To 51, 81 To 84, 113 To 118:       e = Metall
-    Case 21 To 30, 39 To 48, 57, 72 To 80, 89, 104 To 112: e = Übergangsmetall
-    Case 58 To 71:                                         e = Lanthanoid
-    Case 90 To 103:                                        e = Actinoid
+    Case 0:                                                e = ESerie.none
+    Case 1, 6, 7, 8, 15, 16, 34:                           e = ESerie.Nichtmetall
+    Case 2, 10, 18, 36, 54, 86:                            e = ESerie.Edelgas
+    Case 3, 11, 19, 37, 55, 87:                            e = ESerie.Alkalimetall
+    Case 4, 12, 20, 38, 56, 88:                            e = ESerie.Erdalkalimetall
+    Case 5, 14, 32, 33, 34, 51, 52, 84, 85:                e = ESerie.Halbmetall
+    Case 9, 17, 35, 53, 85:                                e = ESerie.Halogen
+    Case 13, 31, 32, 49 To 51, 81 To 84, 113 To 118:       e = ESerie.Metall
+    Case 21 To 30, 39 To 48, 57, 72 To 80, 89, 104 To 112: e = ESerie.Übergangsmetall
+    Case 58 To 71:                                         e = ESerie.Lanthanoid
+    Case 90 To 103:                                        e = ESerie.Actinoid
     End Select
     GetESerieFromOrd = e
 End Function
@@ -150,17 +178,17 @@ End Function
 Public Function ESerie_ToStr(e As ESerie) As String
     Dim s As String
     Select Case e
-    Case ESerie.None:            s = "None"
-    Case Nichtmetall:     s = "Nichtmetall"
-    Case Edelgas:         s = "Edelgas"
-    Case Alkalimetall:    s = "Alkalimetall"
-    Case Erdalkalimetall: s = "Erdalkalimetall"
-    Case Halbmetall:      s = "Halbmetall"
-    Case Halogen:         s = "Halogen"
-    Case Metall:          s = "Metall"
-    Case Übergangsmetall: s = "Übergangsmetall"
-    Case Lanthanoid:      s = "Lanthanoid"
-    Case Actinoid:        s = "Actinoid"
+    Case ESerie.none:            s = "None"
+    Case ESerie.Nichtmetall:     s = "Nichtmetall"
+    Case ESerie.Edelgas:         s = "Edelgas"
+    Case ESerie.Alkalimetall:    s = "Alkalimetall"
+    Case ESerie.Erdalkalimetall: s = "Erdalkalimetall"
+    Case ESerie.Halbmetall:      s = "Halbmetall"
+    Case ESerie.Halogen:         s = "Halogen"
+    Case ESerie.Metall:          s = "Metall"
+    Case ESerie.Übergangsmetall: s = "Übergangsmetall"
+    Case ESerie.Lanthanoid:      s = "Lanthanoid"
+    Case ESerie.Actinoid:        s = "Actinoid"
     End Select
     ESerie_ToStr = s
 End Function
