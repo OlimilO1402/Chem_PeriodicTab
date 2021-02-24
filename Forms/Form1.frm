@@ -1,48 +1,30 @@
 VERSION 5.00
 Begin VB.Form Form1 
    Caption         =   "Form1"
-   ClientHeight    =   8412
+   ClientHeight    =   8415
    ClientLeft      =   120
-   ClientTop       =   468
-   ClientWidth     =   20772
+   ClientTop       =   465
+   ClientWidth     =   16305
    LinkTopic       =   "Form1"
-   ScaleHeight     =   701
-   ScaleMode       =   3  'Pixel
-   ScaleWidth      =   1731
+   ScaleHeight     =   8415
+   ScaleWidth      =   16305
    StartUpPosition =   3  'Windows-Standard
-   Begin VB.PictureBox Picture1 
-      BorderStyle     =   0  'Kein
-      Height          =   615
-      Left            =   120
-      ScaleHeight     =   612
-      ScaleWidth      =   18852
-      TabIndex        =   1
-      Top             =   120
-      Width           =   18855
-      Begin VB.ListBox List2 
-         Height          =   480
-         Left            =   3240
-         Style           =   1  'Kontrollkästchen
-         TabIndex        =   2
-         Top             =   0
-         Width           =   2655
-      End
-   End
    Begin VB.ListBox List1 
       BeginProperty Font 
-         Name            =   "Lucida Console"
-         Size            =   11.4
+         Name            =   "Consolas"
+         Size            =   9.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   7344
-      Left            =   120
+      Height          =   7935
+      Left            =   0
       TabIndex        =   0
-      Top             =   840
-      Width           =   20535
+      ToolTipText     =   "DoubleClick -> copy to Clipboard"
+      Top             =   0
+      Width           =   16095
    End
 End
 Attribute VB_Name = "Form1"
@@ -68,11 +50,11 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Form_Resize()
-    Dim brdr As Single: brdr = 8
+    'Dim brdr As Single: brdr = 1 '8
     Dim L As Single: L = List1.Left
     Dim T As Single: T = List1.Top
-    Dim W As Single: W = Me.ScaleWidth - L - brdr
-    Dim H As Single: H = Me.ScaleHeight - T - brdr
+    Dim W As Single: W = Me.ScaleWidth - L '- brdr
+    Dim H As Single: H = Me.ScaleHeight - T '- brdr
     If W > 0 And H > 0 Then List1.Move L, T, W, H
 End Sub
 
@@ -83,5 +65,12 @@ Private Sub List1_Click()
         'Set a = Atoms.Item(i)
         'MsgBox a.CountElectrons
     End If
+End Sub
+
+Private Sub List1_DblClick()
+    Dim i As Integer: i = List1.ListIndex
+    If i < 0 Then Exit Sub
+    Clipboard.Clear
+    Clipboard.SetText List1.List(i)
 End Sub
 

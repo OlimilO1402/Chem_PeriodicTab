@@ -136,21 +136,21 @@ Public Sub ChemElements_ToListbox(aLB As ListBox)
 End Sub
 
 Public Function ChemElement_ToStr(this As ChemElement) As String
-    Dim s As String
+    Dim s As String: s = "Atom{"
     With this
-        s = s & PadLeft(CStr(.Ordnungszahl), 3) & " "
-        s = s & PadRight(.Symbol, 2) & " "
-        s = s & PadRight(.Name, 14) & " "
-        s = s & PadLeft(Format(.Atomgewicht, "0.000"), 7) & "; "
-        s = s & "is R.Act: " & PadRight(BoolToYesNo(.isRadioaktiv), 6) & "; "
-        s = s & "is Artif: " & PadRight(BoolToYesNo(.isArtificial), 6) & "; "
-        s = s & PadRight(ESerie_ToStr(.Serie), 15) & "; "
-        s = s & PadRight(EStoffTyp_ToStr(.StoffTyp), 11) & "; "
-        s = s & "elneg: " & Format(.ElNegativ, "0.0") & "; "
+        s = s & "Ordz: " & PadLeft(CStr(.Ordnungszahl), 3) & "; "
+        s = s & "Symb: " & PadRight(.Symbol, 2) & "; "
+        s = s & "Name: " & PadRight(.Name, 14) & "; "
+        s = s & "weight: " & PadLeft(Format(.Atomgewicht, "0.000"), 7) & "; "
+        s = s & "isRAct: " & PadRight(BoolToYesNo(.isRadioaktiv), 6) & "; "
+        s = s & "isArtif: " & PadRight(BoolToYesNo(.isArtificial), 6) & "; "
+        s = s & "Serie: " & PadRight(ESerie_ToStr(.Serie), 15) & "; "
+        s = s & "Stoff: " & PadRight(EStoffTyp_ToStr(.StoffTyp), 11) & "; "
+        s = s & "elneg: " & Format(Str(.ElNegativ), "0.0") & "; "
         's = s & "n-Neutr: " & PadLeft(.nNeutrons, 3) & "; "
-        s = s & "ElKonf: " & ElKonf_ToStr(.ElKonfig)
+        s = s & "ElKonf:  " & ElKonf_ToStr(.ElKonfig) & ";"
     End With
-    ChemElement_ToStr = s
+    ChemElement_ToStr = s & "}"
 End Function
 
 Public Function GetChemElemFromOrd(ByVal iOrd As Long) As ChemElement
