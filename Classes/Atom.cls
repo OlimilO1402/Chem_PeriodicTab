@@ -21,21 +21,22 @@ Friend Sub New_(ByVal iOrd As Long)
 End Sub
 
 Friend Function ToStr() As String
-    Dim s As String
-    With m_ChemElem
-        s = s & PadLeft(CStr(.Ordnungszahl), 3) & " "
-        s = s & PadRight(.Symbol, 2) & " "
-        s = s & PadRight(.Name, 14) & " "
-        s = s & PadLeft(Format(.Atomgewicht, "0.000"), 7) & "; "
-        s = s & "is R.Act: " & PadRight(BoolToYesNo(.isRadioaktiv), 6) & "; "
-        s = s & "is Artif: " & PadRight(BoolToYesNo(.isArtificial), 6) & "; "
-        s = s & PadRight(ESerie_ToStr(.Serie), 15) & "; "
-        s = s & PadRight(EStoffTyp_ToStr(.StoffTyp), 11) & "; "
-        s = s & "elneg: " & Format(.ElNegativ, "0.0") & "; "
-        s = s & "n-Neutr: " & PadLeft(Me.nNeutrons, 3) & "; "
-        s = s & "ElKonf: " & ElKonf_ToStr(.ElKonfig)
-    End With
-    ToStr = s
+    ToStr = MChemElem.ChemElement_ToStr(m_ChemElem)
+'    Dim s As String
+'    With m_ChemElem
+'        s = s & PadLeft(CStr(.Ordnungszahl), 3) & " "
+'        s = s & PadRight(.Symbol, 2) & " "
+'        s = s & PadRight(.Name, 14) & " "
+'        s = s & PadLeft(Format(.Atomgewicht, "0.0000"), 7) & "; "
+'        s = s & "is R.Act: " & PadRight(BoolToYesNo(.isRadioaktiv), 6) & "; "
+'        s = s & "is Artif: " & PadRight(BoolToYesNo(.isArtificial), 6) & "; "
+'        s = s & PadRight(ESerie_ToStr(.Serie), 15) & "; "
+'        s = s & PadRight(EStoffTyp_ToStr(.StoffTyp), 11) & "; "
+'        s = s & "elneg: " & Format(CStr(.ElNegativ), "0.00") & "; "
+'        s = s & "n-Neutr: " & PadLeft(Me.nNeutrons, 3) & "; "
+'        s = s & "ElKonf: " & ElKonf_ToStr(.ElKonfig)
+'    End With
+'    ToStr = s
 End Function
 
 Public Function CountElectrons() As Long

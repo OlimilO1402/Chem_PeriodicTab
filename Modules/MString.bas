@@ -1,5 +1,5 @@
 Attribute VB_Name = "MString"
-Option Explicit
+Option Explicit ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 ' String
 Public Function PadLeft(StrVal As String, _
@@ -37,6 +37,13 @@ Public Function BoolToYesNo(ByVal b As Boolean) As String
     BoolToYesNo = IIf(b, " Ja ", "Nein")
 End Function
 
+Public Function Double_TryParse(s As String, d_out As Double) As Boolean
+Try: On Error GoTo Catch
+    s = Replace(s, ",", ".")
+    d_out = Val(s)
+    Double_TryParse = True
+Catch:
+End Function
 
 
 

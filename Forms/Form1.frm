@@ -4,10 +4,11 @@ Begin VB.Form Form1
    ClientHeight    =   8415
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   16305
+   ClientWidth     =   19695
+   Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   8415
-   ScaleWidth      =   16305
+   ScaleWidth      =   19695
    StartUpPosition =   3  'Windows-Standard
    Begin VB.ListBox List1 
       BeginProperty Font 
@@ -24,7 +25,7 @@ Begin VB.Form Form1
       TabIndex        =   0
       ToolTipText     =   "DoubleClick -> copy to Clipboard"
       Top             =   0
-      Width           =   16095
+      Width           =   18975
    End
 End
 Attribute VB_Name = "Form1"
