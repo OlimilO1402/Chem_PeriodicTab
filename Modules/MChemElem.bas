@@ -2,7 +2,7 @@ Attribute VB_Name = "MChemElem"
 Option Explicit
 
 Public Enum ESerie
-    None = 0                ' R ,  G ,  B
+    none = 0                ' R ,  G ,  B
     Nichtmetall = &H1       '228, 255, 228
     Edelgas = &H2           '237, 255, 255
     Alkalimetall = &H4      '255, 213, 213
@@ -22,8 +22,8 @@ Public Enum EStoffTyp 'bei normaler Temperatur 20°C
 End Enum
 
 'Bohrsche-Atommodell
-'Sommerfeld'sche atommodell
-'Rutherfordsche-Arommodell
+'Sommerfeld'sche Atommodell
+'Rutherfordsche-Atommodell
 
 'Orbitalmodell nach Pauling, Erwin Schrödinger und Werner Heisenberg
 'Schrödingergleichung: Lösung gibt die Bahn von Elektronen an
@@ -42,7 +42,7 @@ End Enum
 '
 ''-Spin 'ESpin
 Public Enum OrbitalSpin
-    None = 0
+    none = 0
     SpinUp = 1
     SpinUpDown = 2
 End Enum
@@ -160,7 +160,7 @@ End Function
 Private Function GetESerieFromOrd(ByVal iOrd As Long) As ESerie
     Dim e As ESerie
     Select Case iOrd
-    Case 0:                                                e = ESerie.None
+    Case 0:                                                e = ESerie.none
     Case 1, 6, 7, 8, 15, 16, 34:                           e = ESerie.Nichtmetall
     Case 2, 10, 18, 36, 54, 86:                            e = ESerie.Edelgas
     Case 3, 11, 19, 37, 55, 87:                            e = ESerie.Alkalimetall
@@ -178,7 +178,7 @@ End Function
 Public Function ESerie_ToStr(e As ESerie) As String
     Dim s As String
     Select Case e
-    Case ESerie.None:            s = "None"
+    Case ESerie.none:            s = "None"
     Case ESerie.Nichtmetall:     s = "Nichtmetall"
     Case ESerie.Edelgas:         s = "Edelgas"
     Case ESerie.Alkalimetall:    s = "Alkalimetall"
@@ -355,30 +355,30 @@ End Sub
 
 Private Sub CreateChemElements()
     Dim i As Long: i = 1
-    
+     
     AddChemElement i, New_ChemElement(i, "H ", "1.007940", "2.02", "Wasserstoff  ", 1)                        '  1
     AddChemElement i, New_ChemElement(i, "He", "4.002602", "0.00", "Helium       ", 2)                        '  2
     
-    AddChemElement i, New_ChemElement(i, "Li", "6.941000", "0.98", "Lithium      ", 2, 1)                   '  3
-    AddChemElement i, New_ChemElement(i, "Be", "9.012182", "1.57", "Beryllium    ", 2, 2)                    '  4
-    AddChemElement i, New_ChemElement(i, "B ", "10.81100", "2.04", "Bor          ", 2, 3)                   '  5
-    AddChemElement i, New_ChemElement(i, "C ", "12.01070", "2.55", "Kohlenstoff  ", 2, 4)                    '  6
-    AddChemElement i, New_ChemElement(i, "N ", "14.00674", "3.04", "Stickstoff   ", 2, 5)                   '  7
-    AddChemElement i, New_ChemElement(i, "O ", "15.99400", "3.44", "Sauerstoff   ", 2, 6)                    '  8
-    AddChemElement i, New_ChemElement(i, "F ", "18.99840", "3.98", "Fluor        ", 2, 7)                   '  9
+    AddChemElement i, New_ChemElement(i, "Li", "6.941000", "0.98", "Lithium      ", 2, 1)                     '  3
+    AddChemElement i, New_ChemElement(i, "Be", "9.012182", "1.57", "Beryllium    ", 2, 2)                     '  4
+    AddChemElement i, New_ChemElement(i, "B ", "10.81100", "2.04", "Bor          ", 2, 3)                     '  5
+    AddChemElement i, New_ChemElement(i, "C ", "12.01070", "2.55", "Kohlenstoff  ", 2, 4)                     '  6
+    AddChemElement i, New_ChemElement(i, "N ", "14.00674", "3.04", "Stickstoff   ", 2, 5)                     '  7
+    AddChemElement i, New_ChemElement(i, "O ", "15.99400", "3.44", "Sauerstoff   ", 2, 6)                     '  8
+    AddChemElement i, New_ChemElement(i, "F ", "18.99840", "3.98", "Fluor        ", 2, 7)                     '  9
     AddChemElement i, New_ChemElement(i, "Ne", "20.17970", "0.00", "Neon         ", 2, 8)                     ' 10
     
-    AddChemElement i, New_ChemElement(i, "Na", "22.98977", "0.93", "Natrium      ", 2, 8, 1)                 ' 11
-    AddChemElement i, New_ChemElement(i, "Mg", "24.30500", "1.31", "Magnesium    ", 2, 8, 2)                 ' 12
+    AddChemElement i, New_ChemElement(i, "Na", "22.98977", "0.93", "Natrium      ", 2, 8, 1)                  ' 11
+    AddChemElement i, New_ChemElement(i, "Mg", "24.30500", "1.31", "Magnesium    ", 2, 8, 2)                  ' 12
     AddChemElement i, New_ChemElement(i, "Al", "26.981538", "1.61", "Aluminium    ", 2, 8, 3)                 ' 13
-    AddChemElement i, New_ChemElement(i, "Si", "28.085500", "1.90", "Silicium     ", 2, 8, 4)                  ' 14
+    AddChemElement i, New_ChemElement(i, "Si", "28.085500", "1.90", "Silicium     ", 2, 8, 4)                 ' 14
     AddChemElement i, New_ChemElement(i, "P ", "30.973761", "2.19", "Phosphor     ", 2, 8, 5)                 ' 15
     AddChemElement i, New_ChemElement(i, "S ", "32.066000", "2.58", "Schwefel     ", 2, 8, 6)                 ' 16
-    AddChemElement i, New_ChemElement(i, "Cl", "35.452700", "3.16", "Chlor        ", 2, 8, 7)                ' 17
-    AddChemElement i, New_ChemElement(i, "Ar", "39.948000", "0.82", "Argon        ", 2, 8, 8)                ' 18
+    AddChemElement i, New_ChemElement(i, "Cl", "35.452700", "3.16", "Chlor        ", 2, 8, 7)                 ' 17
+    AddChemElement i, New_ChemElement(i, "Ar", "39.948000", "0.82", "Argon        ", 2, 8, 8)                 ' 18
     
     AddChemElement i, New_ChemElement(i, "K ", "39.098300", "0.82", "Kalium       ", 2, 8, 8, 1)              ' 19
-    AddChemElement i, New_ChemElement(i, "Ca", "40.078000", "1.00", "Calcium      ", 2, 8, 8, 2)               ' 20
+    AddChemElement i, New_ChemElement(i, "Ca", "40.078000", "1.00", "Calcium      ", 2, 8, 8, 2)              ' 20
     AddChemElement i, New_ChemElement(i, "Sc", "44.955910", "1.36", "Scandium     ", 2, 8, 9, 2)              ' 21
     AddChemElement i, New_ChemElement(i, "Ti", "47.867000", "1.54", "Titan        ", 2, 8, 10, 2)             ' 22
     AddChemElement i, New_ChemElement(i, "V ", "50.941500", "1.63", "Vanadium     ", 2, 8, 11, 2)             ' 23
@@ -387,103 +387,103 @@ Private Sub CreateChemElements()
     AddChemElement i, New_ChemElement(i, "Fe", "55.845000", "1.83", "Eisen        ", 2, 8, 14, 2)             ' 26
     AddChemElement i, New_ChemElement(i, "Co", "58.933200", "1.91", "Cobalt       ", 2, 8, 15, 2)             ' 27
     AddChemElement i, New_ChemElement(i, "Ni", "58.693400", "1.88", "Nickel       ", 2, 8, 16, 2)             ' 28
-    AddChemElement i, New_ChemElement(i, "Cu", "63.546000", "1.90", "Kupfer       ", 2, 8, 18, 1)              ' 29
+    AddChemElement i, New_ChemElement(i, "Cu", "63.546000", "1.90", "Kupfer       ", 2, 8, 18, 1)             ' 29
     AddChemElement i, New_ChemElement(i, "Zn", "65.389000", "1.65", "Zink         ", 2, 8, 18, 2)             ' 30
     AddChemElement i, New_ChemElement(i, "Ga", "69.723000", "1.81", "Gallium      ", 2, 8, 18, 3)             ' 31
     AddChemElement i, New_ChemElement(i, "Ge", "72.641000", "2.01", "Germanium    ", 2, 8, 18, 4)             ' 32
-    AddChemElement i, New_ChemElement(i, "As", "74.921600", "2.18", "Arsen        ", 2, 8, 18, 5)            ' 33
+    AddChemElement i, New_ChemElement(i, "As", "74.921600", "2.18", "Arsen        ", 2, 8, 18, 5)             ' 33
     AddChemElement i, New_ChemElement(i, "Se", "78.960000", "2.55", "Selen        ", 2, 8, 18, 6)             ' 34
     AddChemElement i, New_ChemElement(i, "Br", "79.904000", "2.96", "Brom         ", 2, 8, 18, 7)             ' 35
-    AddChemElement i, New_ChemElement(i, "Kr", "83.798000", "0.00", "Krypton      ", 2, 8, 18, 8)              ' 36
+    AddChemElement i, New_ChemElement(i, "Kr", "83.798000", "0.00", "Krypton      ", 2, 8, 18, 8)             ' 36
     
     AddChemElement i, New_ChemElement(i, "Rb", "85.467800", "0.82", "Rubidium     ", 2, 8, 18, 8, 1)          ' 37
-    AddChemElement i, New_ChemElement(i, "Sr", "87.620000", "0.95", "Strontium    ", 2, 8, 18, 8, 2)         ' 38
+    AddChemElement i, New_ChemElement(i, "Sr", "87.620000", "0.95", "Strontium    ", 2, 8, 18, 8, 2)          ' 38
     AddChemElement i, New_ChemElement(i, "Y ", "88.905850", "1.22", "Yttrium      ", 2, 8, 18, 9, 2)          ' 39
     AddChemElement i, New_ChemElement(i, "Z ", "91.224000", "1.33", "Zirconium    ", 2, 8, 18, 10, 2)         ' 40
-    AddChemElement i, New_ChemElement(i, "Nb", "92.906380", "1.60", "Niob         ", 2, 8, 18, 12, 1)          ' 41
+    AddChemElement i, New_ChemElement(i, "Nb", "92.906380", "1.60", "Niob         ", 2, 8, 18, 12, 1)         ' 41
     AddChemElement i, New_ChemElement(i, "Mo", "95.964000", "2.16", "Molybdän     ", 2, 8, 18, 13, 1)         ' 42
-    AddChemElement i, New_ChemElement(i, "Tc", "98.910000", "1.90", "Technetium   ", 2, 8, 18, 13, 2)          ' 43
-    AddChemElement i, New_ChemElement(i, "Ru", "101.07000", "2.20", "Ruthenium    ", 2, 8, 18, 15, 1)          ' 44
+    AddChemElement i, New_ChemElement(i, "Tc", "98.910000", "1.90", "Technetium   ", 2, 8, 18, 13, 2)         ' 43
+    AddChemElement i, New_ChemElement(i, "Ru", "101.07000", "2.20", "Ruthenium    ", 2, 8, 18, 15, 1)         ' 44
     AddChemElement i, New_ChemElement(i, "Rh", "102.90550", "2.28", "Rhodium      ", 2, 8, 18, 16, 1)         ' 45
-    AddChemElement i, New_ChemElement(i, "Pd", "106.42000", "2.20", "Palladium    ", 2, 8, 18, 18)             ' 46
+    AddChemElement i, New_ChemElement(i, "Pd", "106.42000", "2.20", "Palladium    ", 2, 8, 18, 18)            ' 46
     AddChemElement i, New_ChemElement(i, "Ag", "107.86820", "1.93", "Silber       ", 2, 8, 18, 18, 1)         ' 47
     AddChemElement i, New_ChemElement(i, "Cd", "112.41100", "1.69", "Cadmium      ", 2, 8, 18, 18, 2)         ' 48
     AddChemElement i, New_ChemElement(i, "In", "114.81800", "1.78", "Indium       ", 2, 8, 18, 18, 3)         ' 49
     AddChemElement i, New_ChemElement(i, "Sn", "118.71000", "1.96", "Zinn         ", 2, 8, 18, 18, 4)         ' 50
     AddChemElement i, New_ChemElement(i, "Sb", "121.76000", "2.05", "Antimon      ", 2, 8, 18, 18, 5)         ' 51
     AddChemElement i, New_ChemElement(i, "Te", "127.60000", "2.66", "Tellur       ", 2, 8, 18, 18, 6)         ' 52
-    AddChemElement i, New_ChemElement(i, "I ", "126.90447", "2.10", "Iod          ", 2, 8, 18, 18, 7)          ' 53
+    AddChemElement i, New_ChemElement(i, "I ", "126.90447", "2.10", "Iod          ", 2, 8, 18, 18, 7)         ' 53
     AddChemElement i, New_ChemElement(i, "Xe", "131.29000", "2.60", "Xenon        ", 2, 8, 18, 18, 8)         ' 54
     
     AddChemElement i, New_ChemElement(i, "Cs", "132.90545", "0.79", "Caesium      ", 2, 8, 18, 18, 8, 1)      ' 55
     AddChemElement i, New_ChemElement(i, "Ba", "137.32700", "0.89", "Barium       ", 2, 8, 18, 18, 8, 2)      ' 56
     
-    AddChemElement i, New_ChemElement(i, "La", "138.90550", "1.10", "Lanthan      ", 2, 8, 18, 18, 9, 2)       ' 57
+    AddChemElement i, New_ChemElement(i, "La", "138.90550", "1.10", "Lanthan      ", 2, 8, 18, 18, 9, 2)      ' 57
     AddChemElement i, New_ChemElement(i, "Ce", "140.11600", "1.12", "Cer          ", 2, 8, 18, 19, 9, 2)      ' 58
     AddChemElement i, New_ChemElement(i, "Pr", "140.90765", "1.13", "Praseodym    ", 2, 8, 18, 21, 8, 2)      ' 59
     AddChemElement i, New_ChemElement(i, "Nd", "144.24000", "1.14", "Neodym       ", 2, 8, 18, 22, 8, 2)      ' 60
     AddChemElement i, New_ChemElement(i, "Pm", "145.00000", "1.13", "Promethium   ", 2, 8, 18, 23, 8, 2)      ' 61
     AddChemElement i, New_ChemElement(i, "Sm", "150.36000", "1.17", "Samarium     ", 2, 8, 18, 24, 8, 2)      ' 62
-    AddChemElement i, New_ChemElement(i, "Eu", "151.96400", "1.20", "Europium     ", 2, 8, 18, 25, 8, 2)       ' 63
-    AddChemElement i, New_ChemElement(i, "Gd", "157.25000", "1.20", "Gadolinium   ", 2, 8, 18, 25, 9, 2)       ' 64
-    AddChemElement i, New_ChemElement(i, "Tb", "158.92534", "1.10", "Terbium      ", 2, 8, 18, 27, 8, 2)       ' 65
+    AddChemElement i, New_ChemElement(i, "Eu", "151.96400", "1.20", "Europium     ", 2, 8, 18, 25, 8, 2)      ' 63
+    AddChemElement i, New_ChemElement(i, "Gd", "157.25000", "1.20", "Gadolinium   ", 2, 8, 18, 25, 9, 2)      ' 64
+    AddChemElement i, New_ChemElement(i, "Tb", "158.92534", "1.10", "Terbium      ", 2, 8, 18, 27, 8, 2)      ' 65
     AddChemElement i, New_ChemElement(i, "Dy", "162.50000", "1.22", "Dysprosium   ", 2, 8, 18, 28, 8, 2)      ' 66
     AddChemElement i, New_ChemElement(i, "Ho", "164.93032", "1.23", "Holmium      ", 2, 8, 18, 29, 8, 2)      ' 67
     AddChemElement i, New_ChemElement(i, "Er", "167.26000", "1.24", "Erbium       ", 2, 8, 18, 30, 8, 2)      ' 68
     AddChemElement i, New_ChemElement(i, "Tm", "168.93421", "1.25", "Thulium      ", 2, 8, 18, 31, 8, 2)      ' 69
-    AddChemElement i, New_ChemElement(i, "Yb", "173.04000", "1.10", "Ytterbium    ", 2, 8, 18, 32, 8, 2)       ' 70
+    AddChemElement i, New_ChemElement(i, "Yb", "173.04000", "1.10", "Ytterbium    ", 2, 8, 18, 32, 8, 2)      ' 70
     AddChemElement i, New_ChemElement(i, "Lu", "174.96700", "1.27", "Lutetium     ", 2, 8, 18, 32, 9, 2)      ' 71
     
-    AddChemElement i, New_ChemElement(i, "Hf", "178.49000", "1.30", "Hafnium      ", 2, 8, 18, 32, 10, 2)      ' 72
-    AddChemElement i, New_ChemElement(i, "Ta", "180.94790", "1.50", "Tantal       ", 2, 8, 18, 32, 11, 2)      ' 73
+    AddChemElement i, New_ChemElement(i, "Hf", "178.49000", "1.30", "Hafnium      ", 2, 8, 18, 32, 10, 2)     ' 72
+    AddChemElement i, New_ChemElement(i, "Ta", "180.94790", "1.50", "Tantal       ", 2, 8, 18, 32, 11, 2)     ' 73
     AddChemElement i, New_ChemElement(i, "W ", "183.84000", "2.36", "Wolfram      ", 2, 8, 18, 32, 12, 2)     ' 74
-    AddChemElement i, New_ChemElement(i, "Re", "186.20700", "1.90", "Rhenium      ", 2, 8, 18, 32, 13, 2)      ' 75
-    AddChemElement i, New_ChemElement(i, "Os", "190.23000", "2.20", "Osmium       ", 2, 8, 18, 32, 14, 2)      ' 76
-    AddChemElement i, New_ChemElement(i, "Ir", "192.21700", "2.20", "Iridium      ", 2, 8, 18, 32, 15, 2)      ' 77
+    AddChemElement i, New_ChemElement(i, "Re", "186.20700", "1.90", "Rhenium      ", 2, 8, 18, 32, 13, 2)     ' 75
+    AddChemElement i, New_ChemElement(i, "Os", "190.23000", "2.20", "Osmium       ", 2, 8, 18, 32, 14, 2)     ' 76
+    AddChemElement i, New_ChemElement(i, "Ir", "192.21700", "2.20", "Iridium      ", 2, 8, 18, 32, 15, 2)     ' 77
     AddChemElement i, New_ChemElement(i, "Pt", "195.07800", "2.28", "Platin       ", 2, 8, 18, 32, 17, 1)     ' 78
     AddChemElement i, New_ChemElement(i, "Au", "196.96655", "2.54", "Gold         ", 2, 8, 18, 32, 18, 1)     ' 79
-    AddChemElement i, New_ChemElement(i, "Hg", "200.59000", "1.90", "Quecksilber  ", 2, 8, 18, 32, 18, 2)      ' 80
+    AddChemElement i, New_ChemElement(i, "Hg", "200.59000", "1.90", "Quecksilber  ", 2, 8, 18, 32, 18, 2)     ' 80
     AddChemElement i, New_ChemElement(i, "Tl", "204.38330", "1.62", "Thallium     ", 2, 8, 18, 32, 18, 3)     ' 81
     AddChemElement i, New_ChemElement(i, "Pb", "207.20000", "2.33", "Blei         ", 2, 8, 18, 32, 18, 4)     ' 82
     AddChemElement i, New_ChemElement(i, "Bi", "208.98038", "2.02", "Bismut       ", 2, 8, 18, 32, 18, 5)     ' 83
-    AddChemElement i, New_ChemElement(i, "Po", "209.98000", "2.00", "Polonium     ", 2, 8, 18, 32, 18, 6)      ' 84
-    AddChemElement i, New_ChemElement(i, "At", "210.00000", "2.20", "Astat        ", 2, 8, 18, 32, 18, 7)      ' 85
-    AddChemElement i, New_ChemElement(i, "Rn", "222.00000", "0.00", "Radon        ", 2, 8, 18, 32, 18, 8)      ' 86
+    AddChemElement i, New_ChemElement(i, "Po", "209.98000", "2.00", "Polonium     ", 2, 8, 18, 32, 18, 6)     ' 84
+    AddChemElement i, New_ChemElement(i, "At", "210.00000", "2.20", "Astat        ", 2, 8, 18, 32, 18, 7)     ' 85
+    AddChemElement i, New_ChemElement(i, "Rn", "222.00000", "0.00", "Radon        ", 2, 8, 18, 32, 18, 8)     ' 86
     
-    AddChemElement i, New_ChemElement(i, "Fr", "223.00000", "0.70", "Francium     ", 2, 8, 18, 32, 18, 8, 1)   ' 87
+    AddChemElement i, New_ChemElement(i, "Fr", "223.00000", "0.70", "Francium     ", 2, 8, 18, 32, 18, 8, 1)  ' 87
     AddChemElement i, New_ChemElement(i, "Ra", "226.03000", "0.89", "Radium       ", 2, 8, 18, 32, 18, 8, 2)  ' 88
-    AddChemElement i, New_ChemElement(i, "Ac", "227.00", "1.10", "Actinium     ", 2, 8, 18, 32, 18, 9, 2)   ' 89
+    AddChemElement i, New_ChemElement(i, "Ac", "227.00", "1.10", "Actinium     ", 2, 8, 18, 32, 18, 9, 2)     ' 89
     
-    AddChemElement i, New_ChemElement(i, "Th", "232.04", "1.50", "Thorium      ", 2, 8, 18, 32, 18, 10, 2)   ' 90
-    AddChemElement i, New_ChemElement(i, "Pa", "231.04", "1.30", "Protactinium ", 2, 8, 18, 32, 20, 9, 2)    ' 91
-    AddChemElement i, New_ChemElement(i, "U ", "238.03", "1.36", "Uran         ", 2, 8, 18, 32, 21, 9, 2)  ' 92
-    AddChemElement i, New_ChemElement(i, "Np", "237.05", "1.38", "Neptunium    ", 2, 8, 18, 32, 22, 9, 2)  ' 93
-    AddChemElement i, New_ChemElement(i, "Pu", "244.10", "1.30", "Plutonium    ", 2, 8, 18, 32, 24, 8, 2)   ' 94
-    AddChemElement i, New_ChemElement(i, "Am", "243.10", "1.28", "Americium    ", 2, 8, 18, 32, 25, 8, 2)  ' 95
-    AddChemElement i, New_ChemElement(i, "Cm", "247.10", "1.30", "Curium       ", 2, 8, 18, 32, 25, 9, 2)   ' 96
-    AddChemElement i, New_ChemElement(i, "Bk", "247.10", "1.30", "Berkelium    ", 2, 8, 18, 32, 25, 10, 2)  ' 97
-    AddChemElement i, New_ChemElement(i, "Cf", "251.10", "1.30", "Californium  ", 2, 8, 18, 32, 28, 8, 2)   ' 98
-    AddChemElement i, New_ChemElement(i, "Es", "254.10", "1.30", "Einsteinium  ", 2, 8, 18, 32, 29, 8, 2)   ' 99
-    AddChemElement i, New_ChemElement(i, "Fm", "257.10", "1.30", "Fermium      ", 2, 8, 18, 32, 30, 8, 2)   '100
-    AddChemElement i, New_ChemElement(i, "Md", "258.00", "1.30", "Mendelevium  ", 2, 8, 18, 32, 31, 8, 2)   '101
-    AddChemElement i, New_ChemElement(i, "No", "259.00", "1.30", "Nobelium     ", 2, 8, 18, 32, 32, 8, 2)   '102
-    AddChemElement i, New_ChemElement(i, "Lr", "260.00", "1.30", "Lawrencium   ", 2, 8, 18, 32, 32, 9, 2)   '103
+    AddChemElement i, New_ChemElement(i, "Th", "232.04", "1.50", "Thorium      ", 2, 8, 18, 32, 18, 10, 2)    ' 90
+    AddChemElement i, New_ChemElement(i, "Pa", "231.04", "1.30", "Protactinium ", 2, 8, 18, 32, 20, 9, 2)     ' 91
+    AddChemElement i, New_ChemElement(i, "U ", "238.03", "1.36", "Uran         ", 2, 8, 18, 32, 21, 9, 2)     ' 92
+    AddChemElement i, New_ChemElement(i, "Np", "237.05", "1.38", "Neptunium    ", 2, 8, 18, 32, 22, 9, 2)     ' 93
+    AddChemElement i, New_ChemElement(i, "Pu", "244.10", "1.30", "Plutonium    ", 2, 8, 18, 32, 24, 8, 2)     ' 94
+    AddChemElement i, New_ChemElement(i, "Am", "243.10", "1.28", "Americium    ", 2, 8, 18, 32, 25, 8, 2)     ' 95
+    AddChemElement i, New_ChemElement(i, "Cm", "247.10", "1.30", "Curium       ", 2, 8, 18, 32, 25, 9, 2)     ' 96
+    AddChemElement i, New_ChemElement(i, "Bk", "247.10", "1.30", "Berkelium    ", 2, 8, 18, 32, 25, 10, 2)    ' 97
+    AddChemElement i, New_ChemElement(i, "Cf", "251.10", "1.30", "Californium  ", 2, 8, 18, 32, 28, 8, 2)     ' 98
+    AddChemElement i, New_ChemElement(i, "Es", "254.10", "1.30", "Einsteinium  ", 2, 8, 18, 32, 29, 8, 2)     ' 99
+    AddChemElement i, New_ChemElement(i, "Fm", "257.10", "1.30", "Fermium      ", 2, 8, 18, 32, 30, 8, 2)     '100
+    AddChemElement i, New_ChemElement(i, "Md", "258.00", "1.30", "Mendelevium  ", 2, 8, 18, 32, 31, 8, 2)     '101
+    AddChemElement i, New_ChemElement(i, "No", "259.00", "1.30", "Nobelium     ", 2, 8, 18, 32, 32, 8, 2)     '102
+    AddChemElement i, New_ChemElement(i, "Lr", "260.00", "1.30", "Lawrencium   ", 2, 8, 18, 32, 32, 9, 2)     '103
     
-    AddChemElement i, New_ChemElement(i, "Rf", "261.00", "0.00", "Rutherfordium", 2, 8, 18, 32, 32, 10, 2)  '104
-    AddChemElement i, New_ChemElement(i, "Db", "262.00", "0.00", "Dubnium      ", 2, 8, 18, 32, 32, 11, 2)  '105
-    AddChemElement i, New_ChemElement(i, "Sg", "263.00", "0.00", "Seaborgium   ", 2, 8, 18, 32, 32, 12, 2)  '106
-    AddChemElement i, New_ChemElement(i, "Bh", "262.00", "0.00", "Bohrium      ", 2, 8, 18, 32, 32, 13, 2)  '107
-    AddChemElement i, New_ChemElement(i, "Hs", "265.00", "0.00", "Hassium      ", 2, 8, 18, 32, 32, 14, 2)  '108
-    AddChemElement i, New_ChemElement(i, "Mt", "266.00", "0.00", "Meitnerium   ", 2, 8, 18, 32, 32, 15, 2)  '109
-    AddChemElement i, New_ChemElement(i, "Ds", "269.00", "0.00", "Darmstadtium ", 2, 8, 18, 32, 32, 17, 1)  '110
-    AddChemElement i, New_ChemElement(i, "Rg", "272.00", "0.00", "Roentgenium  ", 2, 8, 18, 32, 32, 18, 1)  '111
-    AddChemElement i, New_ChemElement(i, "Cn", "277.00", "0.00", "Copernicium  ", 2, 8, 18, 32, 32, 18, 2)  '112
-    AddChemElement i, New_ChemElement(i, "Nh", "287.00", "0.00", "Nihonium     ", 2, 8, 18, 32, 32, 18, 3)  '113
-    AddChemElement i, New_ChemElement(i, "Fl", "289.00", "0.00", "Flerovium    ", 2, 8, 18, 32, 32, 18, 4)  '114
-    AddChemElement i, New_ChemElement(i, "Mc", "288.00", "0.00", "Moscovium    ", 2, 8, 18, 32, 32, 18, 5)  '115
-    AddChemElement i, New_ChemElement(i, "Lv", "289.00", "0.00", "Livermorium  ", 2, 8, 18, 32, 32, 18, 6)  '116
-    AddChemElement i, New_ChemElement(i, "Ts", "293.00", "0.00", "Tenness      ", 2, 8, 18, 32, 32, 18, 7)  '117
-    AddChemElement i, New_ChemElement(i, "Og", "294.00", "0.00", "Oganesson    ", 2, 8, 18, 32, 32, 18, 8)  '118
+    AddChemElement i, New_ChemElement(i, "Rf", "261.00", "0.00", "Rutherfordium", 2, 8, 18, 32, 32, 10, 2)    '104
+    AddChemElement i, New_ChemElement(i, "Db", "262.00", "0.00", "Dubnium      ", 2, 8, 18, 32, 32, 11, 2)    '105
+    AddChemElement i, New_ChemElement(i, "Sg", "263.00", "0.00", "Seaborgium   ", 2, 8, 18, 32, 32, 12, 2)    '106
+    AddChemElement i, New_ChemElement(i, "Bh", "262.00", "0.00", "Bohrium      ", 2, 8, 18, 32, 32, 13, 2)    '107
+    AddChemElement i, New_ChemElement(i, "Hs", "265.00", "0.00", "Hassium      ", 2, 8, 18, 32, 32, 14, 2)    '108
+    AddChemElement i, New_ChemElement(i, "Mt", "266.00", "0.00", "Meitnerium   ", 2, 8, 18, 32, 32, 15, 2)    '109
+    AddChemElement i, New_ChemElement(i, "Ds", "269.00", "0.00", "Darmstadtium ", 2, 8, 18, 32, 32, 17, 1)    '110
+    AddChemElement i, New_ChemElement(i, "Rg", "272.00", "0.00", "Roentgenium  ", 2, 8, 18, 32, 32, 18, 1)    '111
+    AddChemElement i, New_ChemElement(i, "Cn", "277.00", "0.00", "Copernicium  ", 2, 8, 18, 32, 32, 18, 2)    '112
+    AddChemElement i, New_ChemElement(i, "Nh", "287.00", "0.00", "Nihonium     ", 2, 8, 18, 32, 32, 18, 3)    '113
+    AddChemElement i, New_ChemElement(i, "Fl", "289.00", "0.00", "Flerovium    ", 2, 8, 18, 32, 32, 18, 4)    '114
+    AddChemElement i, New_ChemElement(i, "Mc", "288.00", "0.00", "Moscovium    ", 2, 8, 18, 32, 32, 18, 5)    '115
+    AddChemElement i, New_ChemElement(i, "Lv", "289.00", "0.00", "Livermorium  ", 2, 8, 18, 32, 32, 18, 6)    '116
+    AddChemElement i, New_ChemElement(i, "Ts", "293.00", "0.00", "Tenness      ", 2, 8, 18, 32, 32, 18, 7)    '117
+    AddChemElement i, New_ChemElement(i, "Og", "294.00", "0.00", "Oganesson    ", 2, 8, 18, 32, 32, 18, 8)    '118
     
     'ce(i) = New_ChemElement(i, "", 0, "")
     

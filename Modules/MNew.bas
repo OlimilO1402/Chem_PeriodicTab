@@ -1,7 +1,7 @@
 Attribute VB_Name = "MNew"
 Option Explicit
 Public Enum ESpin
-    None = 0
+    none = 0
     SpinUp = 1
     SpinUpDown = 2
 End Enum
@@ -64,10 +64,10 @@ Public Function Periode(ByVal aVal As Long, OS As OrbitalS, Optional OP As Orbit
     Periode.New_ aVal, OS, OP, OD, OF
 End Function
 
-Public Function Min(V1, V2)
-    If V1 < V2 Then Min = V1 Else Min = V2
-End Function
-Public Function Max(V1, V2)
-    If V1 > V2 Then Max = V1 Else Max = V2
-End Function
-
+'Public Function Min(V1, V2)
+'    If V1 < V2 Then Min = V1 Else Min = V2
+'End Function
+'Public Function Max(V1, V2)
+'    If V1 > V2 Then Max = V1 Else Max = V2
+'End Function
+'
